@@ -4,12 +4,12 @@
   "description": "API for cryptocurrency prices and market cap from coinmarketcap.com",
   "main": "./bin/index.js",
   "scripts": {
-    "cleanup": "rm -rf bin",
-    "build": "NODE_ENV=production yarn run build:create",
+    "build": "yarn run test && yarn run build:pre && NODE_ENV=production yarn run build:create",
+    "build:pre": "rm -rf bin",
     "build:create": "babel -D src -d bin",
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "standard",
-    "test:unit": "find ./__test__ -name *.js -exec node -r babel-register {} \\; | tf-spec"
+    "test:lint": "standard ./src/* && eslint ./src/*",
+    "test:unit": "echo 'No test suite added :('"
   },
   "repository": {
     "type": "git",
@@ -28,12 +28,6 @@
     "url": "https://github.com/ReyHaynes/coinmarketcap-api/issues"
   },
   "homepage": "https://github.com/ReyHaynes/coinmarketcap-api#readme",
-  "standard": {
-    "parser": "babel-eslint",
-    "ignore": [
-      "bin"
-    ]
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.3",
