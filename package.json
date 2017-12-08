@@ -1,0 +1,47 @@
+{
+  "name": "coinmarketcap-api",
+  "version": "0.0.1",
+  "description": "API for cryptocurrency prices and market cap from coinmarketcap.com",
+  "main": "./bin/index.js",
+  "scripts": {
+    "cleanup": "rm -rf bin",
+    "build": "NODE_ENV=production yarn run build:create",
+    "build:create": "babel -D src -d bin",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "standard",
+    "test:unit": "find ./__test__ -name *.js -exec node -r babel-register {} \\; | tf-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReyHaynes/coinmarketcap-api.git"
+  },
+  "keywords": [
+    "cryptocurrency",
+    "coinmarketcap",
+    "bitcoin",
+    "market-cap",
+    "price"
+  ],
+  "author": "Reinaldo Haynes (https://github.com/ReyHaynes)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ReyHaynes/coinmarketcap-api/issues"
+  },
+  "homepage": "https://github.com/ReyHaynes/coinmarketcap-api#readme",
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "bin"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0"
+  }
+}
