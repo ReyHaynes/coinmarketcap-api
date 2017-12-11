@@ -8,8 +8,9 @@
     "build:pre": "rm -rf bin",
     "build:create": "babel -D src -d bin",
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "standard ./src/* && eslint ./src/*",
-    "test:unit": "echo 'No test suite added :('"
+    "test:lint": "eslint ./src/*",
+    "test:unit": "echo 'No test suite added :('",
+    "start": "babel-node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -33,9 +34,10 @@
     "babel-eslint": "^8.0.3",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "standard": "^10.0.3"
+    "eslint": "^4.13.0"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "querystring": "^0.2.0"
   }
 }
